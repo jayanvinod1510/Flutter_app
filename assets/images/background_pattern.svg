@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.1">
+        <!-- Background Circles Pattern -->
+        <circle cx="100" cy="100" r="50" fill="#4F46E5"/>
+        <circle cx="400" cy="300" r="80" fill="#4F46E5"/>
+        <circle cx="800" cy="200" r="60" fill="#4F46E5"/>
+        <circle cx="200" cy="600" r="70" fill="#4F46E5"/>
+        <circle cx="600" cy="700" r="90" fill="#4F46E5"/>
+        <circle cx="900" cy="800" r="40" fill="#4F46E5"/>
+        
+        <!-- Decorative Lines -->
+        <path d="M0 200 L1000 200" stroke="#4F46E5" stroke-width="1" stroke-dasharray="10 10"/>
+        <path d="M0 600 L1000 600" stroke="#4F46E5" stroke-width="1" stroke-dasharray="10 10"/>
+        <path d="M200 0 L200 1000" stroke="#4F46E5" stroke-width="1" stroke-dasharray="10 10"/>
+        <path d="M800 0 L800 1000" stroke="#4F46E5" stroke-width="1" stroke-dasharray="10 10"/>
+    </g>
+</svg> 
