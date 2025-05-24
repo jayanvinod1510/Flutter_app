@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,13 +13,21 @@ class FrappeAuthService {
 
   Future<bool> login(String username, String password) async {
     try {
-      final formData = jsonEncode({
-        'usr': username,
-        'pwd': password,
-      });
+      // Step 1: Login to Firebase
+      final userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: username,
+        password: password,
+      );
+      final idToken = await userCredential.user?.getIdToken();
 
+      // Step 2: Send Firebase ID token and password to Frappe backend
+      final formData = jsonEncode({
+        'id_token': idToken,
+        'password': password,
+      });
       final response = await html.HttpRequest.request(
-        'http://localhost:86/api/method/frappe.healthcare_management.doctype.doctor.doctor.custom_login',
+        'http://localhost:86/api/method/frappe.healthcare_management.doctype.doctor.doctor.get_user_details',
         requestHeaders: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -41,9 +50,6 @@ class FrappeAuthService {
           return true;
         }
       }
-
-      print('Login failed. Status code: ${response.status}');
-      print('Response body: ${response.responseText}');
       return false;
     } catch (e) {
       print('Login error: $e');

@@ -23,20 +23,22 @@ dependencies:
   url_launcher: ^6.2.1
   dio: ^5.0.10
   universal_html: ^2.2.4
-  lottie: ^2.7.0  # Adding Lottie for animations
+  lottie: ^3.3.1  # Adding Lottie for animations
   flutter_svg: ^2.0.9  # Adding SVG support
   google_fonts: ^6.1.0
   firebase_core: ^3.13.1
+  firebase_auth: ^5.5.4
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   # cupertino_icons: ^1.0.8
-
+dependency_overrides:
+  firebase_auth_web: ^5.8.10
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
